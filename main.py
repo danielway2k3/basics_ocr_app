@@ -12,13 +12,14 @@ reader = easyocr.Reader(
     ["vi", "en"],
     gpu=True,
     detect_network="craft",
-    model_storage_directory="./my_model",
+    model_storage_directory="./model",
     download_enabled=False,
 )
 
 app = FastAPI()
 
 cache = {}
+
 
 @app.post("/preloaded_ocr")
 async def ocr(file: UploadFile = File(...)):
